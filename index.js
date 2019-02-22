@@ -61,8 +61,7 @@ class LoginWithTwitter {
 
       const {
         oauth_token: token,
-        oauth_token_secret: tokenSecret,
-        oauth_callback_confirmed: 'true'
+        oauth_token_secret: tokenSecret
       } = querystring.parse(data.toString())
 
 
