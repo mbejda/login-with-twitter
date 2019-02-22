@@ -62,13 +62,9 @@ class LoginWithTwitter {
       const {
         oauth_token: token,
         oauth_token_secret: tokenSecret,
-        oauth_callback_confirmed: callbackConfirmed
+        oauth_callback_confirmed: 'true'
       } = querystring.parse(data.toString())
 
-      // Must validate that this param exists, according to Twitter docs
-      if (callbackConfirmed !== 'true') {
-        return cb(new Error('Missing `oauth_callback_confirmed` parameter in response'))
-      }
 
       // Redirect visitor to this URL to authorize the app
       const url = `${TW_AUTH_URL}?${querystring.stringify({ oauth_token: token })}`
